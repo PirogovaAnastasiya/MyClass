@@ -1,0 +1,38 @@
+﻿<Window x:Class="MyClass.WindowKonkurs"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyClass"
+        mc:Ignorable="d"
+        Title="Мой Класс | Конкурс" Height="350" Width="550" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Icon="image/school.png">
+    <Grid Background="#FFEEE2FF">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Название конкурса" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="TN_konk" Text="{Binding N_konk}" Grid.Row="0" Grid.Column="1" Width="200" Height="28" HorizontalAlignment="Left" VerticalAlignment="Bottom" MaxLength="50" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"/>
+        <Label Content="Участник" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Bottom"/>
+        <ComboBox x:Name="CUch" SelectedItem="{Binding Ucheniki}"  Grid.Column="1" Grid.Row="1" Width="200" Height="28" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+
+        <Label Content="Дата участия" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Bottom"/>
+        <DatePicker Grid.Row="2" SelectedDate="{Binding Data_konk}" Grid.Column="1"  x:Name="DData_konk"  Width="120" Height="28" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+            <Label Content="Уровень конкурса" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Bottom"/>
+        <ComboBox x:Name="CLevel" SelectedItem="{Binding LevelKonkurs}" DisplayMemberPath="N_level" Grid.Column="1" Grid.Row="3" Width="150" Height="28" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+        <Label Content="Результат" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="TResult_konk" Text="{Binding Result_konk}"  Grid.Row="4" Grid.Column="1" Width="150" Height="28" HorizontalAlignment="Left" VerticalAlignment="Bottom" MaxLength="50"/>
+
+
+        <Button x:Name="BBack" Content="Назад" Grid.Column="0" Grid.Row="5" Width="120" Height="24" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20,0,0,10" Click="BBack_Click" Background="#FFDABFFF"/>
+        <Button x:Name="BSaveKonkurs" Content="Сохранить" Grid.Column="1" Grid.Row="5" Width="120" Height="24" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,10" Click="BSaveKonkurs_Click" Background="#FFDABFFF"/>
+    </Grid>
+</Window>

@@ -1,0 +1,212 @@
+﻿<Window x:Class="MyClass.WindowUch"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyClass"
+        mc:Ignorable="d"
+        Title="Мой класс | Ученик" Height="630" Width="850" WindowStartupLocation="CenterScreen" Icon="image/school.png" ResizeMode="CanMinimize">
+    <Grid Background="#FFEEE2FF">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" >
+            <Grid Width="auto" Height="auto">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid  Grid.Column="0" Grid.Row="0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="150"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Image x:Name="IImageUch"   Grid.Row="0"  Width="90" Height="90" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <Button x:Name="BAddImage" Content="Загрузить фото" Grid.Row="1" Height="23" Width="120" VerticalAlignment="Top" Click="BAddImage_Click" Background="#FFDABFFF"/>
+                </Grid>
+                <Grid  Grid.Column="1" Grid.Row="0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0"/>
+                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition Width="160"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="140"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <Label Content="Фамилия" Grid.Row="0" Grid.Column="1" Width="80" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+                    <TextBox x:Name="TF_uch" Text="{Binding F_uch}"  Grid.Row="0" Grid.Column="2" Height="23" Width="150" HorizontalAlignment="Left"  VerticalAlignment="Bottom" MaxLength="50"/>
+                    <Label Content="Имя" Grid.Row="1" Grid.Column="1"/>
+                    <TextBox x:Name="TI_uch" Text="{Binding I_uch}"  Grid.Row="1" Grid.Column="2" Height="23" Width="150" HorizontalAlignment="Left"  VerticalAlignment="Bottom" MaxLength="50"/>
+                    <Label Content="Отчество" Grid.Row="2" Grid.Column="1"/>
+                    <TextBox x:Name="TO_uch" Text="{Binding O_uch}"  Grid.Row="2" Grid.Column="2" Height="23" Width="150" HorizontalAlignment="Left"  VerticalAlignment="Bottom" MaxLength="50"/>
+                    <Label Content="Дата рождения" Grid.Row="3" Grid.Column="1"/>
+                    <DatePicker Grid.Row="3" SelectedDate="{Binding Datarozh_uch}" Grid.Column="2" x:Name="DDatarozh_uch" Width="120" Height="23" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                    <Label Content="Номер телефона" Grid.Row="4" Grid.Column="1"/>
+                    <TextBox x:Name="TPhone_uch" Text="{Binding Phone_uch}"  Grid.Row="4" Grid.Column="2" Height="23" Width="150" HorizontalAlignment="Left"  VerticalAlignment="Bottom" MaxLength="12" />
+                    <Label Content="Адрес проживания" Grid.Row="5" Grid.Column="1"/>
+                    <TextBox x:Name="TAdres_uch"  Text="{Binding Adres_uch}"  Grid.Row="5" Grid.Column="2" Height="23" Width="160" HorizontalAlignment="Left"  VerticalAlignment="Bottom"/>
+                    <Label Content="Пол" Grid.Row="0" Grid.Column="4" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+                    <ComboBox x:Name="CPol_uch" SelectedItem="{Binding Pol}"  DisplayMemberPath="N_pol" Grid.Row="0" Grid.Column="5" Height="23" Width="120" VerticalAlignment="Bottom" HorizontalAlignment="Left" />
+                    <Label Content="Национальность" Grid.Row="1" Grid.Column="4" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Left" />
+                    <TextBox x:Name="TNacion_uch" Text="{Binding Nation_uch}"  Grid.Row="1" Grid.Column="5" Height="23" Width="150" HorizontalAlignment="Left"  VerticalAlignment="Bottom" MaxLength="50"/>
+                    <Label Content="Изучаемый язык" Grid.Row="2" Grid.Column="4" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+                    <ComboBox x:Name="CLanguage_uch" SelectedItem="{Binding Languages}"  DisplayMemberPath="N_lang" Grid.Row="2" Grid.Column="5" Height="23" Width="120" VerticalAlignment="Bottom" HorizontalAlignment="Left" />
+                    <Label Content="Приказ о зачислении" Grid.Row="3" Grid.Column="4" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+                    <TextBox x:Name="TZach_uch" Text="{Binding Zach_uch}"  Grid.Row="3" Grid.Column="5" Height="23" Width="200" HorizontalAlignment="Left"  VerticalAlignment="Bottom"/>
+                    <Label Content="Приказ об отчислении" Grid.Row="4" Grid.Column="4" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+                    <TextBox x:Name="TOtch_uch" Text="{Binding Otch_uch}"  Grid.Row="4" Grid.Column="5" Height="23" Width="200" HorizontalAlignment="Left"  VerticalAlignment="Bottom"/>
+                    <Button x:Name="BSaveUch" Content="Сохранить" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="120" Height=" 24" Grid.Row="6" Grid.Column="2" Click="BSaveUch_Click" Background="#FFDABFFF"/>
+                    <Label x:Name="LKlass"  Content="Класс" Grid.Row="5" Grid.Column="4"/>
+                    <ComboBox x:Name="CKlass" SelectedItem="{Binding Klasses}" DisplayMemberPath="N_klass" Grid.Row="5" Grid.Column="5" Height="23" Width="80" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                </Grid>
+
+                
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1">
+            <Expander x:Name="ExpDock" Header="Документы" Height="auto" Expanded="ExpDock_Expanded">
+                <Grid Background="#FFEEE2FF">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="25"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="170"/>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="170"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Свидетельство о рождении:" Grid.Row="0" Grid.Column="0"/>
+                    <Label Content="Серия" Grid.Row="1" Grid.Column="0"/>
+                    <TextBox x:Name="TSeriya_svid" Text="{Binding Dock.Seriya_svid}"   Grid.Row="1" Grid.Column="1"  Height="23" Width="150" HorizontalAlignment="Left"  VerticalAlignment="Bottom" MaxLength="10"/>
+                    <Label Content="Номер" Grid.Row="2" Grid.Column="0" />
+                    <TextBox x:Name="TNum_svid" Text="{Binding  Dock.Num_svid}"   Grid.Row="2" Grid.Column="1"  Height="23" Width="150" HorizontalAlignment="Left" VerticalAlignment="Bottom" MaxLength="6"/>
+                    <Label Content="Кем выдано" Grid.Row="3" Grid.Column="0" />
+                    <TextBox x:Name="TKem_svid" Text="{Binding  Dock.Kemvid_svid}"   Grid.Row="3" Grid.Column="1"  Height="23" Width="150" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                    <Label Content="Дата выдачи" Grid.Row="4" Grid.Column="0" />
+                    <DatePicker x:Name="DDatavid_svid" SelectedDate="{Binding  Dock.Datavid_svid}" Grid.Row="4" Grid.Column="1" Width="120" HorizontalAlignment="Left"  Height="23" VerticalAlignment="Bottom"/>
+
+                    <Label Content="Паспорт:" Grid.Row="0" Grid.Column="3" />
+                    <Label Content="Серия" Grid.Row="1" Grid.Column="3"/>
+                    <TextBox x:Name="TSeriya_pass" Text="{Binding  Dock.Seriya_pass}"  Grid.Row="1" Grid.Column="4"   Height="23" Width="150" HorizontalAlignment="Left"  VerticalAlignment="Bottom" MaxLength="4"/>
+                    <Label Content="Номер" Grid.Row="2" Grid.Column="3" />
+                    <TextBox x:Name="TNum_pass" Text="{Binding  Dock.Num_pass}"  Grid.Row="2" Grid.Column="4"  Height="23" Width="150" HorizontalAlignment="Left" VerticalAlignment="Bottom" MaxLength="6"/>
+                    <Label Content="Кем выдано" Grid.Row="3" Grid.Column="3" />
+                    <TextBox x:Name="TKem_pass" Text="{Binding  Dock.Kemvid_pass}"  Grid.Row="3" Grid.Column="4"  Height="23" Width="150" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                    <Label Content="Дата выдачи" Grid.Row="4" Grid.Column="3" VerticalAlignment="Center" />
+                    <DatePicker x:Name="DDatavid_pass" SelectedDate="{Binding  Dock.Datavid_pass}" Grid.Row="4" Grid.Column="4" Width="120" HorizontalAlignment="Left"  Height="23" VerticalAlignment="Bottom"/>
+
+                    <Label Content="ИНН" Grid.Row="5" Grid.Column="0" VerticalAlignment="Bottom" />
+                    <TextBox x:Name="TINN" Text="{Binding  Dock.INN}"  Grid.Row="5" Grid.Column="1" Height="23" Width="150" HorizontalAlignment="Left" VerticalAlignment="Bottom" MaxLength="12" />
+                    <Label Content="Снилс"  Grid.Row="6" Grid.Column="0" />
+                    <TextBox x:Name="TSnils" Text="{Binding  Dock.Snils}"  Grid.Row="6" Grid.Column="1" Height="23" Width="150" HorizontalAlignment="Left" VerticalAlignment="Bottom" MaxLength="11"/>
+                    <Label Content="Медицинский полис"  Grid.Row="7" Grid.Column="0" />
+                    <TextBox x:Name="TMedpolis" Text="{Binding  Dock.Medpolis}"   Grid.Row="7" Grid.Column="1" Height="23" Width="150" HorizontalAlignment="Left" VerticalAlignment="Bottom" MaxLength="16"/>
+                </Grid>
+            </Expander>
+            <Expander x:Name="ExpRod" Header="Родители" Height="auto" Expanded="ExpRod_Expanded">
+                <Grid Background="#FFEEE2FF">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <DataGrid x:Name="RodData" AutoGenerateColumns="False" IsReadOnly="True" Width="auto" Height="100" Grid.Row="0" SelectionChanged="RodData_SelectionChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Степень родства" Binding="{Binding Roditeli.Vidrods.N_vidrod}"/>
+                            <DataGridTextColumn Header="Фамилия" Binding="{Binding Roditeli.F_rod}"/>
+                            <DataGridTextColumn Header="Имя" Binding="{Binding Roditeli.I_rod}"/>
+                            <DataGridTextColumn Header="Отчество" Binding="{Binding Roditeli.O_rod}"/>
+                            <DataGridTextColumn Header="Телефон" Binding="{Binding Roditeli.Phone_rod}"/>
+                            <DataGridTextColumn Header="Образование" Binding="{Binding Roditeli.Obrazovanie.N_obr}"/>
+                            <DataGridTextColumn Header="Место работы" Binding="{Binding Roditeli.Mestorab_rod}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="BAddRod" Content="Добавить" Width="80" Height="24" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Row="1" Click="BAddRod_Click" Background="#FFDABFFF"/>
+                    <Button x:Name="BDelRod" Content="Удалить" Width="80" Height="24" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="1" Click="BDelRod_Click" Background="#FFDABFFF"/>
+                    
+                        <Grid  Grid.Row="2" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Content="Вид родства" Grid.Row="0" Grid.Column="0"/>
+                            <ComboBox x:Name="CVidrods" DisplayMemberPath="N_vidrod" Grid.Row="0" Grid.Column="1" Height="24" Width="120" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+                            <Label Content="Фамилия" Grid.Row="1" Grid.Column="0"/>
+                            <TextBox x:Name="TF_rod" Grid.Row="1" Grid.Column="1" Height="24" Width="120" HorizontalAlignment="Left" VerticalAlignment="Bottom" MaxLength="50" />
+                            <Label Content="Имя" Grid.Row="2" Grid.Column="0"/>
+                            <TextBox x:Name="TI_rod" Grid.Row="2" Grid.Column="1" Height="24" Width="120" HorizontalAlignment="Left" VerticalAlignment="Bottom"  MaxLength="50"/>
+                            <Label Content="Отчество" Grid.Row="3" Grid.Column="0"/>
+                            <TextBox x:Name="TO_rod" Grid.Row="3" Grid.Column="1" Height="24" Width="120" HorizontalAlignment="Left" VerticalAlignment="Bottom" MaxLength="50" />
+                            <Label Content="Номер телефона" Grid.Row="0" Grid.Column="2"/>
+                            <TextBox x:Name="TPhone_rod" Grid.Row="0" Grid.Column="3" Height="24" Width="120" HorizontalAlignment="Left" VerticalAlignment="Bottom" MaxLength="12" />
+                            <Label Content="Место работы" Grid.Row="1" Grid.Column="2"/>
+                            <TextBox x:Name="TMestorab_rod" Grid.Row="1" Grid.Column="3" Height="24" Width="250" HorizontalAlignment="Left" VerticalAlignment="Bottom"  />
+                            <Label Content="Образование" Grid.Row="2" Grid.Column="2"/>
+                            <ComboBox x:Name="CObr" DisplayMemberPath="N_obr" Grid.Row="2" Grid.Column="3" Height="24" Width="120" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+                            <Button x:Name="BSaveRod" Content="Сохранить" Width="120" Height="24" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="BSaveRod_Click" Background="#FFDABFFF"/>
+
+                        </Grid>
+               
+                </Grid>
+            </Expander>
+            <Expander x:Name="ExpFam" Header="Информация о семье" Height="auto" Expanded="ExpFam_Expanded" >
+                <Grid Background="#FFEEE2FF">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="24"/>
+                        <RowDefinition Height="24"/>
+                        <RowDefinition Height="24"/>
+                        <RowDefinition Height="24"/>
+                        <RowDefinition Height="24"/>
+                        <RowDefinition Height="24"/>
+                    
+                    </Grid.RowDefinitions>
+                    <CheckBox Content="Семья полная" IsChecked="{Binding Family.Full_fam}"  x:Name="ChFull" Grid.Row="1" VerticalAlignment="Bottom" Margin="20,0,0,0" >
+                       
+                    </CheckBox>
+                    <CheckBox Content="Ребенок-сирота" IsChecked="{Binding Family.Sirota_fam}"  x:Name="ChSirota" Grid.Row="2" VerticalAlignment="Bottom" Margin="20,0,0,0" />
+                    <CheckBox Content="Малообеспеченная семья" IsChecked="{Binding Family.Lowincome_fam}"  x:Name="ChLowincome" Grid.Row="3" VerticalAlignment="Bottom" Margin="20,0,0,0" />
+                    <CheckBox Content="Неблагополучная семья" IsChecked="{Binding Family.Dysfunctional_fam}"  x:Name="ChDysfunctional" Grid.Row="4" VerticalAlignment="Bottom" Margin="20,0,0,0" />
+                    <CheckBox Content="Опекаемый ребенок" IsChecked="{Binding Family.Foster_fam}"  x:Name="ChFoster" Grid.Row="5" VerticalAlignment="Bottom" Margin="20,0,0,0" />
+                    <CheckBox Content="Многодетная семья" IsChecked="{Binding Family.Large_fam}"  x:Name="ChLarge" Grid.Row="6" VerticalAlignment="Bottom" Margin="20,0,0,0" />
+                </Grid>
+            </Expander>
+
+        </StackPanel>
+        <Grid Grid.Row="2">
+            <Button x:Name="BBack" Content="Назад" Grid.Row="1" Width="120" Height="24" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,10" Click="BBack_Click" Background="#FFDABFFF"/>
+        </Grid>
+    </Grid>
+</Window>

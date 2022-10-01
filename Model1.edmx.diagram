@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f2f397e85a6745448b6cc06b7e894850" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.Dock" Width="1.5" PointX="5.25" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Family" Width="1.5" PointX="5.25" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Klasses" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.KlRuks" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Konkurs" Width="1.5" PointX="7.5" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Languages" Width="1.5" PointX="5.25" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.LevelKonkurs" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Meropriyatia" Width="1.5" PointX="10.5" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Obrazovanie" Width="1.5" PointX="5.25" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Pol" Width="1.5" PointX="5.25" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Roditeli" Width="1.5" PointX="7.5" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.RodUch" Width="1.5" PointX="9.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.StatusMer" Width="1.5" PointX="8.25" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Ucheniki" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Users" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.VidMer" Width="1.5" PointX="8.25" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Vidrods" Width="1.5" PointX="5.25" PointY="25.875" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_Ucheniki_Dock" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Ucheniki_Family" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Klasses_KlRuks" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Konkurs_Klasses" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Meropriyatia_Klasses" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Ucheniki_Klasses" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_KlRuks_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Konkurs_LevelKonkurs" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Konkurs_Ucheniki" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Ucheniki_Languages" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Meropriyatia_StatusMer" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Meropriyatia_VidMer" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Roditeli_Obrazovanie" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Ucheniki_Pol1" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Roditeli_Vidrods" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_RodUch_Roditeli" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_RodUch_Ucheniki" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

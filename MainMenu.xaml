@@ -1,0 +1,54 @@
+﻿<Window x:Class="MyClass.MainMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyClass"
+        mc:Ignorable="d"
+        Title="Мой Класс " Height="720" Width="1000" WindowStartupLocation="CenterScreen" Icon="image/school.png" MinWidth="950" MinHeight="710">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="160"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Background="#FFDABFFF">
+            <Button x:Name="BExit"  Width="60" Height="40" Background="#FFDABFFF" BorderBrush="#FFDABFFF" VerticalAlignment="Center" HorizontalAlignment="Left" Click="BExit_Click" >
+                <Image Source="image/exit.png"/>
+            </Button>
+        </Grid>
+        <Grid Grid.Column="1" Background="#FFDABFFF">
+            
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+            <Label x:Name="LabelUser" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="DarkBlue"  FontSize="14"/>
+            <Label x:Name="LabelKlass" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="DarkBlue" FontSize="14" />
+           
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="0"  Background="#FFDABFFF">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Button x:Name="BUch" Grid.Row="1" Content="Ученики"  Width="120" Height="30"  Click="BUch_Click" Background="#FF7956C5" Foreground="White" FontWeight="Bold" />
+            <Button x:Name="BOtchets" Content="Отчеты" Grid.Row="4"  Width="120" Height="30"  Click="BOtchets_Click" Background="#FF7956C5" Foreground="White" FontWeight="Bold"/>
+            <Button x:Name="BMer" Content="Мероприятия" Grid.Row="2" Grid.Column="0" Width="120" Height="30"  Click="BMer_Click" Background="#FF7956C5" Foreground="White" FontWeight="Bold" />
+            <Button x:Name="BUchForAdmin" Grid.Row="3" Content="Ученики"  Width="120" Height="30"  Background="#FF7956C5" Foreground="White" FontWeight="Bold" Click="BUchForAdmin_Click" />
+            <Button x:Name="BKonkurs" Content="Конкурсы" Grid.Row="3" Grid.Column="0" Width="120" Height="30"  Click="BKonkurs_Click" Background="#FF7956C5" Foreground="White" FontWeight="Bold" />
+            <Button x:Name="BKlasses" Content="Классы" Grid.Row="1" Grid.Column="0" Width="120" Height="30" Click="BKlasses_Click" Background="#FF7956C5" Foreground="White" FontWeight="Bold"   />
+            <Button x:Name="BKlRuks" Content="Классные руководители" Grid.Row="2" Grid.Column="0" Width="140" Height="30" Click="BKlRuks_Click"  Background="#FF7956C5" Foreground="White" FontWeight="Bold"  />
+        </Grid>
+        <Frame Grid.Row="1" Grid.Column="1" Name="MainFrame" NavigationUIVisibility='Hidden'  ></Frame>
+    </Grid>
+</Window>

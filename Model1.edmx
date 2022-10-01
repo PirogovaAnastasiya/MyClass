@@ -1,0 +1,1188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Dock">
+          <Key>
+            <PropertyRef Name="ID_dock" />
+          </Key>
+          <Property Name="ID_dock" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Seriya_svid" Type="nvarchar" MaxLength="50" />
+          <Property Name="Num_svid" Type="nvarchar" MaxLength="50" />
+          <Property Name="Datavid_svid" Type="date" />
+          <Property Name="Kemvid_svid" Type="nvarchar(max)" />
+          <Property Name="Seriya_pass" Type="nvarchar" MaxLength="50" />
+          <Property Name="Num_pass" Type="nvarchar" MaxLength="50" />
+          <Property Name="Datavid_pass" Type="date" />
+          <Property Name="Kemvid_pass" Type="nvarchar(max)" />
+          <Property Name="INN" Type="nvarchar" MaxLength="50" />
+          <Property Name="Snils" Type="nvarchar" MaxLength="50" />
+          <Property Name="Medpolis" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Family">
+          <Key>
+            <PropertyRef Name="ID_fam" />
+          </Key>
+          <Property Name="ID_fam" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Full_fam" Type="bit" Nullable="false" />
+          <Property Name="Sirota_fam" Type="bit" Nullable="false" />
+          <Property Name="Lowincome_fam" Type="bit" Nullable="false" />
+          <Property Name="Dysfunctional_fam" Type="bit" Nullable="false" />
+          <Property Name="Foster_fam" Type="bit" Nullable="false" />
+          <Property Name="Large_fam" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Klasses">
+          <Key>
+            <PropertyRef Name="ID_klass" />
+          </Key>
+          <Property Name="ID_klass" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="N_klass" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="KlRuk_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KlRuks">
+          <Key>
+            <PropertyRef Name="ID_klruk" />
+          </Key>
+          <Property Name="ID_klruk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="F_klruk" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="I_klruk" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="O_klruk" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="User_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Konkurs">
+          <Key>
+            <PropertyRef Name="ID_konk" />
+          </Key>
+          <Property Name="ID_konk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="N_konk" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Result_konk" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Uch_id" Type="int" Nullable="false" />
+          <Property Name="Level_id" Type="int" Nullable="false" />
+          <Property Name="Klass_id" Type="int" Nullable="false" />
+          <Property Name="Data_konk" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Languages">
+          <Key>
+            <PropertyRef Name="ID_lang" />
+          </Key>
+          <Property Name="ID_lang" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="N_lang" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LevelKonkurs">
+          <Key>
+            <PropertyRef Name="ID_level" />
+          </Key>
+          <Property Name="ID_level" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="N_level" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Meropriyatia">
+          <Key>
+            <PropertyRef Name="ID_mer" />
+          </Key>
+          <Property Name="ID_mer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="N_mer" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Opisanie" Type="nvarchar(max)" />
+          <Property Name="Klass_id" Type="int" Nullable="false" />
+          <Property Name="Status_id" Type="int" Nullable="false" />
+          <Property Name="Data_mer" Type="date" Nullable="false" />
+          <Property Name="Vidmer_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Obrazovanie">
+          <Key>
+            <PropertyRef Name="ID_obr" />
+          </Key>
+          <Property Name="ID_obr" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="N_obr" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pol">
+          <Key>
+            <PropertyRef Name="ID_pol" />
+          </Key>
+          <Property Name="ID_pol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="N_pol" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roditeli">
+          <Key>
+            <PropertyRef Name="ID_rod" />
+          </Key>
+          <Property Name="ID_rod" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="F_rod" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="I_rod" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="O_rod" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone_rod" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Mestorab_rod" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Obr_id" Type="int" Nullable="false" />
+          <Property Name="Vidrod_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RodUch">
+          <Key>
+            <PropertyRef Name="ID_rd" />
+          </Key>
+          <Property Name="ID_rd" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Rod_id" Type="int" Nullable="false" />
+          <Property Name="Uch_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StatusMer">
+          <Key>
+            <PropertyRef Name="ID_status" />
+          </Key>
+          <Property Name="ID_status" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="N_status" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ucheniki">
+          <Key>
+            <PropertyRef Name="ID_uch" />
+          </Key>
+          <Property Name="ID_uch" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="F_uch" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="I_uch" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="O_uch" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Datarozh_uch" Type="date" Nullable="false" />
+          <Property Name="Adres_uch" Type="nvarchar(max)" />
+          <Property Name="Phone_uch" Type="nvarchar" MaxLength="50" />
+          <Property Name="Image_uch" Type="nvarchar(max)" />
+          <Property Name="Zach_uch" Type="nvarchar(max)" />
+          <Property Name="Otch_uch" Type="nvarchar" MaxLength="50" />
+          <Property Name="Nation_uch" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pol_id" Type="int" Nullable="false" />
+          <Property Name="Language_id" Type="int" Nullable="false" />
+          <Property Name="Klass_id" Type="int" Nullable="false" />
+          <Property Name="Dock_id" Type="int" Nullable="false" />
+          <Property Name="Fam_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID_user" />
+          </Key>
+          <Property Name="ID_user" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Level" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VidMer">
+          <Key>
+            <PropertyRef Name="ID_vidmer" />
+          </Key>
+          <Property Name="ID_vidmer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="N_vidmer" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vidrods">
+          <Key>
+            <PropertyRef Name="ID_vidrod" />
+          </Key>
+          <Property Name="ID_vidrod" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="N_vidrod" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Klasses_KlRuks">
+          <End Role="KlRuks" Type="Self.KlRuks" Multiplicity="1" />
+          <End Role="Klasses" Type="Self.Klasses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KlRuks">
+              <PropertyRef Name="ID_klruk" />
+            </Principal>
+            <Dependent Role="Klasses">
+              <PropertyRef Name="KlRuk_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KlRuks_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="KlRuks" Type="Self.KlRuks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID_user" />
+            </Principal>
+            <Dependent Role="KlRuks">
+              <PropertyRef Name="User_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Konkurs_Klasses">
+          <End Role="Klasses" Type="Self.Klasses" Multiplicity="1" />
+          <End Role="Konkurs" Type="Self.Konkurs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klasses">
+              <PropertyRef Name="ID_klass" />
+            </Principal>
+            <Dependent Role="Konkurs">
+              <PropertyRef Name="Klass_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Konkurs_LevelKonkurs">
+          <End Role="LevelKonkurs" Type="Self.LevelKonkurs" Multiplicity="1" />
+          <End Role="Konkurs" Type="Self.Konkurs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LevelKonkurs">
+              <PropertyRef Name="ID_level" />
+            </Principal>
+            <Dependent Role="Konkurs">
+              <PropertyRef Name="Level_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Konkurs_Ucheniki">
+          <End Role="Ucheniki" Type="Self.Ucheniki" Multiplicity="1" />
+          <End Role="Konkurs" Type="Self.Konkurs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ucheniki">
+              <PropertyRef Name="ID_uch" />
+            </Principal>
+            <Dependent Role="Konkurs">
+              <PropertyRef Name="Uch_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meropriyatia_Klasses">
+          <End Role="Klasses" Type="Self.Klasses" Multiplicity="1" />
+          <End Role="Meropriyatia" Type="Self.Meropriyatia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klasses">
+              <PropertyRef Name="ID_klass" />
+            </Principal>
+            <Dependent Role="Meropriyatia">
+              <PropertyRef Name="Klass_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meropriyatia_StatusMer">
+          <End Role="StatusMer" Type="Self.StatusMer" Multiplicity="1" />
+          <End Role="Meropriyatia" Type="Self.Meropriyatia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusMer">
+              <PropertyRef Name="ID_status" />
+            </Principal>
+            <Dependent Role="Meropriyatia">
+              <PropertyRef Name="Status_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meropriyatia_VidMer">
+          <End Role="VidMer" Type="Self.VidMer" Multiplicity="1" />
+          <End Role="Meropriyatia" Type="Self.Meropriyatia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VidMer">
+              <PropertyRef Name="ID_vidmer" />
+            </Principal>
+            <Dependent Role="Meropriyatia">
+              <PropertyRef Name="Vidmer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Roditeli_Obrazovanie">
+          <End Role="Obrazovanie" Type="Self.Obrazovanie" Multiplicity="1" />
+          <End Role="Roditeli" Type="Self.Roditeli" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Obrazovanie">
+              <PropertyRef Name="ID_obr" />
+            </Principal>
+            <Dependent Role="Roditeli">
+              <PropertyRef Name="Obr_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Roditeli_Vidrods">
+          <End Role="Vidrods" Type="Self.Vidrods" Multiplicity="1" />
+          <End Role="Roditeli" Type="Self.Roditeli" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vidrods">
+              <PropertyRef Name="ID_vidrod" />
+            </Principal>
+            <Dependent Role="Roditeli">
+              <PropertyRef Name="Vidrod_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RodUch_Roditeli">
+          <End Role="Roditeli" Type="Self.Roditeli" Multiplicity="1" />
+          <End Role="RodUch" Type="Self.RodUch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roditeli">
+              <PropertyRef Name="ID_rod" />
+            </Principal>
+            <Dependent Role="RodUch">
+              <PropertyRef Name="Rod_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RodUch_Ucheniki">
+          <End Role="Ucheniki" Type="Self.Ucheniki" Multiplicity="1" />
+          <End Role="RodUch" Type="Self.RodUch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ucheniki">
+              <PropertyRef Name="ID_uch" />
+            </Principal>
+            <Dependent Role="RodUch">
+              <PropertyRef Name="Uch_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ucheniki_Dock">
+          <End Role="Dock" Type="Self.Dock" Multiplicity="1" />
+          <End Role="Ucheniki" Type="Self.Ucheniki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dock">
+              <PropertyRef Name="ID_dock" />
+            </Principal>
+            <Dependent Role="Ucheniki">
+              <PropertyRef Name="Dock_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ucheniki_Family">
+          <End Role="Family" Type="Self.Family" Multiplicity="1" />
+          <End Role="Ucheniki" Type="Self.Ucheniki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Family">
+              <PropertyRef Name="ID_fam" />
+            </Principal>
+            <Dependent Role="Ucheniki">
+              <PropertyRef Name="Fam_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ucheniki_Klasses">
+          <End Role="Klasses" Type="Self.Klasses" Multiplicity="1" />
+          <End Role="Ucheniki" Type="Self.Ucheniki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klasses">
+              <PropertyRef Name="ID_klass" />
+            </Principal>
+            <Dependent Role="Ucheniki">
+              <PropertyRef Name="Klass_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ucheniki_Languages">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+          <End Role="Ucheniki" Type="Self.Ucheniki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="ID_lang" />
+            </Principal>
+            <Dependent Role="Ucheniki">
+              <PropertyRef Name="Language_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ucheniki_Pol1">
+          <End Role="Pol" Type="Self.Pol" Multiplicity="1" />
+          <End Role="Ucheniki" Type="Self.Ucheniki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pol">
+              <PropertyRef Name="ID_pol" />
+            </Principal>
+            <Dependent Role="Ucheniki">
+              <PropertyRef Name="Pol_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище ModelContainer">
+          <EntitySet Name="Dock" EntityType="Self.Dock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Family" EntityType="Self.Family" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Klasses" EntityType="Self.Klasses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KlRuks" EntityType="Self.KlRuks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Konkurs" EntityType="Self.Konkurs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Languages" EntityType="Self.Languages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LevelKonkurs" EntityType="Self.LevelKonkurs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Meropriyatia" EntityType="Self.Meropriyatia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Obrazovanie" EntityType="Self.Obrazovanie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pol" EntityType="Self.Pol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roditeli" EntityType="Self.Roditeli" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RodUch" EntityType="Self.RodUch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StatusMer" EntityType="Self.StatusMer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ucheniki" EntityType="Self.Ucheniki" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VidMer" EntityType="Self.VidMer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vidrods" EntityType="Self.Vidrods" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Klasses_KlRuks" Association="Self.FK_Klasses_KlRuks">
+            <End Role="KlRuks" EntitySet="KlRuks" />
+            <End Role="Klasses" EntitySet="Klasses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KlRuks_Users" Association="Self.FK_KlRuks_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="KlRuks" EntitySet="KlRuks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Konkurs_Klasses" Association="Self.FK_Konkurs_Klasses">
+            <End Role="Klasses" EntitySet="Klasses" />
+            <End Role="Konkurs" EntitySet="Konkurs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Konkurs_LevelKonkurs" Association="Self.FK_Konkurs_LevelKonkurs">
+            <End Role="LevelKonkurs" EntitySet="LevelKonkurs" />
+            <End Role="Konkurs" EntitySet="Konkurs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Konkurs_Ucheniki" Association="Self.FK_Konkurs_Ucheniki">
+            <End Role="Ucheniki" EntitySet="Ucheniki" />
+            <End Role="Konkurs" EntitySet="Konkurs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Meropriyatia_Klasses" Association="Self.FK_Meropriyatia_Klasses">
+            <End Role="Klasses" EntitySet="Klasses" />
+            <End Role="Meropriyatia" EntitySet="Meropriyatia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Meropriyatia_StatusMer" Association="Self.FK_Meropriyatia_StatusMer">
+            <End Role="StatusMer" EntitySet="StatusMer" />
+            <End Role="Meropriyatia" EntitySet="Meropriyatia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Meropriyatia_VidMer" Association="Self.FK_Meropriyatia_VidMer">
+            <End Role="VidMer" EntitySet="VidMer" />
+            <End Role="Meropriyatia" EntitySet="Meropriyatia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Roditeli_Obrazovanie" Association="Self.FK_Roditeli_Obrazovanie">
+            <End Role="Obrazovanie" EntitySet="Obrazovanie" />
+            <End Role="Roditeli" EntitySet="Roditeli" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Roditeli_Vidrods" Association="Self.FK_Roditeli_Vidrods">
+            <End Role="Vidrods" EntitySet="Vidrods" />
+            <End Role="Roditeli" EntitySet="Roditeli" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RodUch_Roditeli" Association="Self.FK_RodUch_Roditeli">
+            <End Role="Roditeli" EntitySet="Roditeli" />
+            <End Role="RodUch" EntitySet="RodUch" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RodUch_Ucheniki" Association="Self.FK_RodUch_Ucheniki">
+            <End Role="Ucheniki" EntitySet="Ucheniki" />
+            <End Role="RodUch" EntitySet="RodUch" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ucheniki_Dock" Association="Self.FK_Ucheniki_Dock">
+            <End Role="Dock" EntitySet="Dock" />
+            <End Role="Ucheniki" EntitySet="Ucheniki" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ucheniki_Family" Association="Self.FK_Ucheniki_Family">
+            <End Role="Family" EntitySet="Family" />
+            <End Role="Ucheniki" EntitySet="Ucheniki" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ucheniki_Klasses" Association="Self.FK_Ucheniki_Klasses">
+            <End Role="Klasses" EntitySet="Klasses" />
+            <End Role="Ucheniki" EntitySet="Ucheniki" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ucheniki_Languages" Association="Self.FK_Ucheniki_Languages">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="Ucheniki" EntitySet="Ucheniki" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ucheniki_Pol1" Association="Self.FK_Ucheniki_Pol1">
+            <End Role="Pol" EntitySet="Pol" />
+            <End Role="Ucheniki" EntitySet="Ucheniki" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Dock">
+          <Key>
+            <PropertyRef Name="ID_dock" />
+          </Key>
+          <Property Name="ID_dock" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Seriya_svid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Num_svid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Datavid_svid" Type="DateTime" Precision="0" />
+          <Property Name="Kemvid_svid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Seriya_pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Num_pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Datavid_pass" Type="DateTime" Precision="0" />
+          <Property Name="Kemvid_pass" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="INN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Snils" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Medpolis" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Ucheniki" Relationship="Self.FK_Ucheniki_Dock" FromRole="Dock" ToRole="Ucheniki" />
+        </EntityType>
+        <EntityType Name="Family">
+          <Key>
+            <PropertyRef Name="ID_fam" />
+          </Key>
+          <Property Name="ID_fam" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Full_fam" Type="Boolean" Nullable="false" />
+          <Property Name="Sirota_fam" Type="Boolean" Nullable="false" />
+          <Property Name="Lowincome_fam" Type="Boolean" Nullable="false" />
+          <Property Name="Dysfunctional_fam" Type="Boolean" Nullable="false" />
+          <Property Name="Foster_fam" Type="Boolean" Nullable="false" />
+          <Property Name="Large_fam" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Ucheniki" Relationship="Self.FK_Ucheniki_Family" FromRole="Family" ToRole="Ucheniki" />
+        </EntityType>
+        <EntityType Name="Klasses">
+          <Key>
+            <PropertyRef Name="ID_klass" />
+          </Key>
+          <Property Name="ID_klass" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="N_klass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KlRuk_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="KlRuks" Relationship="Self.FK_Klasses_KlRuks" FromRole="Klasses" ToRole="KlRuks" />
+          <NavigationProperty Name="Konkurs" Relationship="Self.FK_Konkurs_Klasses" FromRole="Klasses" ToRole="Konkurs" />
+          <NavigationProperty Name="Meropriyatia" Relationship="Self.FK_Meropriyatia_Klasses" FromRole="Klasses" ToRole="Meropriyatia" />
+          <NavigationProperty Name="Ucheniki" Relationship="Self.FK_Ucheniki_Klasses" FromRole="Klasses" ToRole="Ucheniki" />
+        </EntityType>
+        <EntityType Name="KlRuks">
+          <Key>
+            <PropertyRef Name="ID_klruk" />
+          </Key>
+          <Property Name="ID_klruk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="F_klruk" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="I_klruk" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="O_klruk" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="User_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Klasses" Relationship="Self.FK_Klasses_KlRuks" FromRole="KlRuks" ToRole="Klasses" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_KlRuks_Users" FromRole="KlRuks" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Konkurs">
+          <Key>
+            <PropertyRef Name="ID_konk" />
+          </Key>
+          <Property Name="ID_konk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="N_konk" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Result_konk" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Uch_id" Type="Int32" Nullable="false" />
+          <Property Name="Level_id" Type="Int32" Nullable="false" />
+          <Property Name="Klass_id" Type="Int32" Nullable="false" />
+          <Property Name="Data_konk" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Klasses" Relationship="Self.FK_Konkurs_Klasses" FromRole="Konkurs" ToRole="Klasses" />
+          <NavigationProperty Name="LevelKonkurs" Relationship="Self.FK_Konkurs_LevelKonkurs" FromRole="Konkurs" ToRole="LevelKonkurs" />
+          <NavigationProperty Name="Ucheniki" Relationship="Self.FK_Konkurs_Ucheniki" FromRole="Konkurs" ToRole="Ucheniki" />
+        </EntityType>
+        <EntityType Name="Languages">
+          <Key>
+            <PropertyRef Name="ID_lang" />
+          </Key>
+          <Property Name="ID_lang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="N_lang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Ucheniki" Relationship="Self.FK_Ucheniki_Languages" FromRole="Languages" ToRole="Ucheniki" />
+        </EntityType>
+        <EntityType Name="LevelKonkurs">
+          <Key>
+            <PropertyRef Name="ID_level" />
+          </Key>
+          <Property Name="ID_level" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="N_level" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Konkurs" Relationship="Self.FK_Konkurs_LevelKonkurs" FromRole="LevelKonkurs" ToRole="Konkurs" />
+        </EntityType>
+        <EntityType Name="Meropriyatia">
+          <Key>
+            <PropertyRef Name="ID_mer" />
+          </Key>
+          <Property Name="ID_mer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="N_mer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Opisanie" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Klass_id" Type="Int32" Nullable="false" />
+          <Property Name="Status_id" Type="Int32" Nullable="false" />
+          <Property Name="Data_mer" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Vidmer_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Klasses" Relationship="Self.FK_Meropriyatia_Klasses" FromRole="Meropriyatia" ToRole="Klasses" />
+          <NavigationProperty Name="StatusMer" Relationship="Self.FK_Meropriyatia_StatusMer" FromRole="Meropriyatia" ToRole="StatusMer" />
+          <NavigationProperty Name="VidMer" Relationship="Self.FK_Meropriyatia_VidMer" FromRole="Meropriyatia" ToRole="VidMer" />
+        </EntityType>
+        <EntityType Name="Obrazovanie">
+          <Key>
+            <PropertyRef Name="ID_obr" />
+          </Key>
+          <Property Name="ID_obr" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="N_obr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Roditeli" Relationship="Self.FK_Roditeli_Obrazovanie" FromRole="Obrazovanie" ToRole="Roditeli" />
+        </EntityType>
+        <EntityType Name="Pol">
+          <Key>
+            <PropertyRef Name="ID_pol" />
+          </Key>
+          <Property Name="ID_pol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="N_pol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Ucheniki" Relationship="Self.FK_Ucheniki_Pol1" FromRole="Pol" ToRole="Ucheniki" />
+        </EntityType>
+        <EntityType Name="Roditeli">
+          <Key>
+            <PropertyRef Name="ID_rod" />
+          </Key>
+          <Property Name="ID_rod" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="F_rod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="I_rod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="O_rod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone_rod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Mestorab_rod" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Obr_id" Type="Int32" Nullable="false" />
+          <Property Name="Vidrod_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Obrazovanie" Relationship="Self.FK_Roditeli_Obrazovanie" FromRole="Roditeli" ToRole="Obrazovanie" />
+          <NavigationProperty Name="Vidrods" Relationship="Self.FK_Roditeli_Vidrods" FromRole="Roditeli" ToRole="Vidrods" />
+          <NavigationProperty Name="RodUch" Relationship="Self.FK_RodUch_Roditeli" FromRole="Roditeli" ToRole="RodUch" />
+        </EntityType>
+        <EntityType Name="RodUch">
+          <Key>
+            <PropertyRef Name="ID_rd" />
+          </Key>
+          <Property Name="ID_rd" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Rod_id" Type="Int32" Nullable="false" />
+          <Property Name="Uch_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Roditeli" Relationship="Self.FK_RodUch_Roditeli" FromRole="RodUch" ToRole="Roditeli" />
+          <NavigationProperty Name="Ucheniki" Relationship="Self.FK_RodUch_Ucheniki" FromRole="RodUch" ToRole="Ucheniki" />
+        </EntityType>
+        <EntityType Name="StatusMer">
+          <Key>
+            <PropertyRef Name="ID_status" />
+          </Key>
+          <Property Name="ID_status" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="N_status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Meropriyatia" Relationship="Self.FK_Meropriyatia_StatusMer" FromRole="StatusMer" ToRole="Meropriyatia" />
+        </EntityType>
+        <EntityType Name="Ucheniki">
+          <Key>
+            <PropertyRef Name="ID_uch" />
+          </Key>
+          <Property Name="ID_uch" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="F_uch" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="I_uch" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="O_uch" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Datarozh_uch" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Adres_uch" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone_uch" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Image_uch" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Zach_uch" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Otch_uch" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Nation_uch" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Pol_id" Type="Int32" Nullable="false" />
+          <Property Name="Language_id" Type="Int32" Nullable="false" />
+          <Property Name="Klass_id" Type="Int32" Nullable="false" />
+          <Property Name="Dock_id" Type="Int32" Nullable="false" />
+          <Property Name="Fam_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Dock" Relationship="Self.FK_Ucheniki_Dock" FromRole="Ucheniki" ToRole="Dock" />
+          <NavigationProperty Name="Family" Relationship="Self.FK_Ucheniki_Family" FromRole="Ucheniki" ToRole="Family" />
+          <NavigationProperty Name="Klasses" Relationship="Self.FK_Ucheniki_Klasses" FromRole="Ucheniki" ToRole="Klasses" />
+          <NavigationProperty Name="Konkurs" Relationship="Self.FK_Konkurs_Ucheniki" FromRole="Ucheniki" ToRole="Konkurs" />
+          <NavigationProperty Name="Languages" Relationship="Self.FK_Ucheniki_Languages" FromRole="Ucheniki" ToRole="Languages" />
+          <NavigationProperty Name="Pol" Relationship="Self.FK_Ucheniki_Pol1" FromRole="Ucheniki" ToRole="Pol" />
+          <NavigationProperty Name="RodUch" Relationship="Self.FK_RodUch_Ucheniki" FromRole="Ucheniki" ToRole="RodUch" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID_user" />
+          </Key>
+          <Property Name="ID_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Level" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="KlRuks" Relationship="Self.FK_KlRuks_Users" FromRole="Users" ToRole="KlRuks" />
+        </EntityType>
+        <EntityType Name="VidMer">
+          <Key>
+            <PropertyRef Name="ID_vidmer" />
+          </Key>
+          <Property Name="ID_vidmer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="N_vidmer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Meropriyatia" Relationship="Self.FK_Meropriyatia_VidMer" FromRole="VidMer" ToRole="Meropriyatia" />
+        </EntityType>
+        <EntityType Name="Vidrods">
+          <Key>
+            <PropertyRef Name="ID_vidrod" />
+          </Key>
+          <Property Name="ID_vidrod" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="N_vidrod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Roditeli" Relationship="Self.FK_Roditeli_Vidrods" FromRole="Vidrods" ToRole="Roditeli" />
+        </EntityType>
+        <Association Name="FK_Ucheniki_Dock">
+          <End Role="Dock" Type="Self.Dock" Multiplicity="1" />
+          <End Role="Ucheniki" Type="Self.Ucheniki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dock">
+              <PropertyRef Name="ID_dock" />
+            </Principal>
+            <Dependent Role="Ucheniki">
+              <PropertyRef Name="Dock_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ucheniki_Family">
+          <End Role="Family" Type="Self.Family" Multiplicity="1" />
+          <End Role="Ucheniki" Type="Self.Ucheniki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Family">
+              <PropertyRef Name="ID_fam" />
+            </Principal>
+            <Dependent Role="Ucheniki">
+              <PropertyRef Name="Fam_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Klasses_KlRuks">
+          <End Role="KlRuks" Type="Self.KlRuks" Multiplicity="1" />
+          <End Role="Klasses" Type="Self.Klasses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KlRuks">
+              <PropertyRef Name="ID_klruk" />
+            </Principal>
+            <Dependent Role="Klasses">
+              <PropertyRef Name="KlRuk_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Konkurs_Klasses">
+          <End Role="Klasses" Type="Self.Klasses" Multiplicity="1" />
+          <End Role="Konkurs" Type="Self.Konkurs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klasses">
+              <PropertyRef Name="ID_klass" />
+            </Principal>
+            <Dependent Role="Konkurs">
+              <PropertyRef Name="Klass_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meropriyatia_Klasses">
+          <End Role="Klasses" Type="Self.Klasses" Multiplicity="1" />
+          <End Role="Meropriyatia" Type="Self.Meropriyatia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klasses">
+              <PropertyRef Name="ID_klass" />
+            </Principal>
+            <Dependent Role="Meropriyatia">
+              <PropertyRef Name="Klass_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ucheniki_Klasses">
+          <End Role="Klasses" Type="Self.Klasses" Multiplicity="1" />
+          <End Role="Ucheniki" Type="Self.Ucheniki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klasses">
+              <PropertyRef Name="ID_klass" />
+            </Principal>
+            <Dependent Role="Ucheniki">
+              <PropertyRef Name="Klass_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KlRuks_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="KlRuks" Type="Self.KlRuks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID_user" />
+            </Principal>
+            <Dependent Role="KlRuks">
+              <PropertyRef Name="User_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Konkurs_LevelKonkurs">
+          <End Role="LevelKonkurs" Type="Self.LevelKonkurs" Multiplicity="1" />
+          <End Role="Konkurs" Type="Self.Konkurs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LevelKonkurs">
+              <PropertyRef Name="ID_level" />
+            </Principal>
+            <Dependent Role="Konkurs">
+              <PropertyRef Name="Level_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Konkurs_Ucheniki">
+          <End Role="Ucheniki" Type="Self.Ucheniki" Multiplicity="1" />
+          <End Role="Konkurs" Type="Self.Konkurs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ucheniki">
+              <PropertyRef Name="ID_uch" />
+            </Principal>
+            <Dependent Role="Konkurs">
+              <PropertyRef Name="Uch_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ucheniki_Languages">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+          <End Role="Ucheniki" Type="Self.Ucheniki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="ID_lang" />
+            </Principal>
+            <Dependent Role="Ucheniki">
+              <PropertyRef Name="Language_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meropriyatia_StatusMer">
+          <End Role="StatusMer" Type="Self.StatusMer" Multiplicity="1" />
+          <End Role="Meropriyatia" Type="Self.Meropriyatia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusMer">
+              <PropertyRef Name="ID_status" />
+            </Principal>
+            <Dependent Role="Meropriyatia">
+              <PropertyRef Name="Status_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meropriyatia_VidMer">
+          <End Role="VidMer" Type="Self.VidMer" Multiplicity="1" />
+          <End Role="Meropriyatia" Type="Self.Meropriyatia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VidMer">
+              <PropertyRef Name="ID_vidmer" />
+            </Principal>
+            <Dependent Role="Meropriyatia">
+              <PropertyRef Name="Vidmer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Roditeli_Obrazovanie">
+          <End Role="Obrazovanie" Type="Self.Obrazovanie" Multiplicity="1" />
+          <End Role="Roditeli" Type="Self.Roditeli" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Obrazovanie">
+              <PropertyRef Name="ID_obr" />
+            </Principal>
+            <Dependent Role="Roditeli">
+              <PropertyRef Name="Obr_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ucheniki_Pol1">
+          <End Role="Pol" Type="Self.Pol" Multiplicity="1" />
+          <End Role="Ucheniki" Type="Self.Ucheniki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pol">
+              <PropertyRef Name="ID_pol" />
+            </Principal>
+            <Dependent Role="Ucheniki">
+              <PropertyRef Name="Pol_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Roditeli_Vidrods">
+          <End Role="Vidrods" Type="Self.Vidrods" Multiplicity="1" />
+          <End Role="Roditeli" Type="Self.Roditeli" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vidrods">
+              <PropertyRef Name="ID_vidrod" />
+            </Principal>
+            <Dependent Role="Roditeli">
+              <PropertyRef Name="Vidrod_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RodUch_Roditeli">
+          <End Role="Roditeli" Type="Self.Roditeli" Multiplicity="1" />
+          <End Role="RodUch" Type="Self.RodUch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roditeli">
+              <PropertyRef Name="ID_rod" />
+            </Principal>
+            <Dependent Role="RodUch">
+              <PropertyRef Name="Rod_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RodUch_Ucheniki">
+          <End Role="Ucheniki" Type="Self.Ucheniki" Multiplicity="1" />
+          <End Role="RodUch" Type="Self.RodUch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ucheniki">
+              <PropertyRef Name="ID_uch" />
+            </Principal>
+            <Dependent Role="RodUch">
+              <PropertyRef Name="Uch_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Dock" EntityType="Self.Dock" />
+          <EntitySet Name="Family" EntityType="Self.Family" />
+          <EntitySet Name="Klasses" EntityType="Self.Klasses" />
+          <EntitySet Name="KlRuks" EntityType="Self.KlRuks" />
+          <EntitySet Name="Konkurs" EntityType="Self.Konkurs" />
+          <EntitySet Name="Languages" EntityType="Self.Languages" />
+          <EntitySet Name="LevelKonkurs" EntityType="Self.LevelKonkurs" />
+          <EntitySet Name="Meropriyatia" EntityType="Self.Meropriyatia" />
+          <EntitySet Name="Obrazovanie" EntityType="Self.Obrazovanie" />
+          <EntitySet Name="Pol" EntityType="Self.Pol" />
+          <EntitySet Name="Roditeli" EntityType="Self.Roditeli" />
+          <EntitySet Name="RodUch" EntityType="Self.RodUch" />
+          <EntitySet Name="StatusMer" EntityType="Self.StatusMer" />
+          <EntitySet Name="Ucheniki" EntityType="Self.Ucheniki" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="VidMer" EntityType="Self.VidMer" />
+          <EntitySet Name="Vidrods" EntityType="Self.Vidrods" />
+          <AssociationSet Name="FK_Ucheniki_Dock" Association="Self.FK_Ucheniki_Dock">
+            <End Role="Dock" EntitySet="Dock" />
+            <End Role="Ucheniki" EntitySet="Ucheniki" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ucheniki_Family" Association="Self.FK_Ucheniki_Family">
+            <End Role="Family" EntitySet="Family" />
+            <End Role="Ucheniki" EntitySet="Ucheniki" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Klasses_KlRuks" Association="Self.FK_Klasses_KlRuks">
+            <End Role="KlRuks" EntitySet="KlRuks" />
+            <End Role="Klasses" EntitySet="Klasses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Konkurs_Klasses" Association="Self.FK_Konkurs_Klasses">
+            <End Role="Klasses" EntitySet="Klasses" />
+            <End Role="Konkurs" EntitySet="Konkurs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Meropriyatia_Klasses" Association="Self.FK_Meropriyatia_Klasses">
+            <End Role="Klasses" EntitySet="Klasses" />
+            <End Role="Meropriyatia" EntitySet="Meropriyatia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ucheniki_Klasses" Association="Self.FK_Ucheniki_Klasses">
+            <End Role="Klasses" EntitySet="Klasses" />
+            <End Role="Ucheniki" EntitySet="Ucheniki" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KlRuks_Users" Association="Self.FK_KlRuks_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="KlRuks" EntitySet="KlRuks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Konkurs_LevelKonkurs" Association="Self.FK_Konkurs_LevelKonkurs">
+            <End Role="LevelKonkurs" EntitySet="LevelKonkurs" />
+            <End Role="Konkurs" EntitySet="Konkurs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Konkurs_Ucheniki" Association="Self.FK_Konkurs_Ucheniki">
+            <End Role="Ucheniki" EntitySet="Ucheniki" />
+            <End Role="Konkurs" EntitySet="Konkurs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ucheniki_Languages" Association="Self.FK_Ucheniki_Languages">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="Ucheniki" EntitySet="Ucheniki" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Meropriyatia_StatusMer" Association="Self.FK_Meropriyatia_StatusMer">
+            <End Role="StatusMer" EntitySet="StatusMer" />
+            <End Role="Meropriyatia" EntitySet="Meropriyatia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Meropriyatia_VidMer" Association="Self.FK_Meropriyatia_VidMer">
+            <End Role="VidMer" EntitySet="VidMer" />
+            <End Role="Meropriyatia" EntitySet="Meropriyatia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Roditeli_Obrazovanie" Association="Self.FK_Roditeli_Obrazovanie">
+            <End Role="Obrazovanie" EntitySet="Obrazovanie" />
+            <End Role="Roditeli" EntitySet="Roditeli" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ucheniki_Pol1" Association="Self.FK_Ucheniki_Pol1">
+            <End Role="Pol" EntitySet="Pol" />
+            <End Role="Ucheniki" EntitySet="Ucheniki" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Roditeli_Vidrods" Association="Self.FK_Roditeli_Vidrods">
+            <End Role="Vidrods" EntitySet="Vidrods" />
+            <End Role="Roditeli" EntitySet="Roditeli" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RodUch_Roditeli" Association="Self.FK_RodUch_Roditeli">
+            <End Role="Roditeli" EntitySet="Roditeli" />
+            <End Role="RodUch" EntitySet="RodUch" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RodUch_Ucheniki" Association="Self.FK_RodUch_Ucheniki">
+            <End Role="Ucheniki" EntitySet="Ucheniki" />
+            <End Role="RodUch" EntitySet="RodUch" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Dock">
+            <EntityTypeMapping TypeName="Model.Dock">
+              <MappingFragment StoreEntitySet="Dock">
+                <ScalarProperty Name="ID_dock" ColumnName="ID_dock" />
+                <ScalarProperty Name="Seriya_svid" ColumnName="Seriya_svid" />
+                <ScalarProperty Name="Num_svid" ColumnName="Num_svid" />
+                <ScalarProperty Name="Datavid_svid" ColumnName="Datavid_svid" />
+                <ScalarProperty Name="Kemvid_svid" ColumnName="Kemvid_svid" />
+                <ScalarProperty Name="Seriya_pass" ColumnName="Seriya_pass" />
+                <ScalarProperty Name="Num_pass" ColumnName="Num_pass" />
+                <ScalarProperty Name="Datavid_pass" ColumnName="Datavid_pass" />
+                <ScalarProperty Name="Kemvid_pass" ColumnName="Kemvid_pass" />
+                <ScalarProperty Name="INN" ColumnName="INN" />
+                <ScalarProperty Name="Snils" ColumnName="Snils" />
+                <ScalarProperty Name="Medpolis" ColumnName="Medpolis" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Family">
+            <EntityTypeMapping TypeName="Model.Family">
+              <MappingFragment StoreEntitySet="Family">
+                <ScalarProperty Name="ID_fam" ColumnName="ID_fam" />
+                <ScalarProperty Name="Full_fam" ColumnName="Full_fam" />
+                <ScalarProperty Name="Sirota_fam" ColumnName="Sirota_fam" />
+                <ScalarProperty Name="Lowincome_fam" ColumnName="Lowincome_fam" />
+                <ScalarProperty Name="Dysfunctional_fam" ColumnName="Dysfunctional_fam" />
+                <ScalarProperty Name="Foster_fam" ColumnName="Foster_fam" />
+                <ScalarProperty Name="Large_fam" ColumnName="Large_fam" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Klasses">
+            <EntityTypeMapping TypeName="Model.Klasses">
+              <MappingFragment StoreEntitySet="Klasses">
+                <ScalarProperty Name="ID_klass" ColumnName="ID_klass" />
+                <ScalarProperty Name="N_klass" ColumnName="N_klass" />
+                <ScalarProperty Name="KlRuk_id" ColumnName="KlRuk_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KlRuks">
+            <EntityTypeMapping TypeName="Model.KlRuks">
+              <MappingFragment StoreEntitySet="KlRuks">
+                <ScalarProperty Name="ID_klruk" ColumnName="ID_klruk" />
+                <ScalarProperty Name="F_klruk" ColumnName="F_klruk" />
+                <ScalarProperty Name="I_klruk" ColumnName="I_klruk" />
+                <ScalarProperty Name="O_klruk" ColumnName="O_klruk" />
+                <ScalarProperty Name="User_id" ColumnName="User_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Konkurs">
+            <EntityTypeMapping TypeName="Model.Konkurs">
+              <MappingFragment StoreEntitySet="Konkurs">
+                <ScalarProperty Name="ID_konk" ColumnName="ID_konk" />
+                <ScalarProperty Name="N_konk" ColumnName="N_konk" />
+                <ScalarProperty Name="Result_konk" ColumnName="Result_konk" />
+                <ScalarProperty Name="Uch_id" ColumnName="Uch_id" />
+                <ScalarProperty Name="Level_id" ColumnName="Level_id" />
+                <ScalarProperty Name="Klass_id" ColumnName="Klass_id" />
+                <ScalarProperty Name="Data_konk" ColumnName="Data_konk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Languages">
+            <EntityTypeMapping TypeName="Model.Languages">
+              <MappingFragment StoreEntitySet="Languages">
+                <ScalarProperty Name="ID_lang" ColumnName="ID_lang" />
+                <ScalarProperty Name="N_lang" ColumnName="N_lang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LevelKonkurs">
+            <EntityTypeMapping TypeName="Model.LevelKonkurs">
+              <MappingFragment StoreEntitySet="LevelKonkurs">
+                <ScalarProperty Name="ID_level" ColumnName="ID_level" />
+                <ScalarProperty Name="N_level" ColumnName="N_level" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Meropriyatia">
+            <EntityTypeMapping TypeName="Model.Meropriyatia">
+              <MappingFragment StoreEntitySet="Meropriyatia">
+                <ScalarProperty Name="ID_mer" ColumnName="ID_mer" />
+                <ScalarProperty Name="N_mer" ColumnName="N_mer" />
+                <ScalarProperty Name="Opisanie" ColumnName="Opisanie" />
+                <ScalarProperty Name="Klass_id" ColumnName="Klass_id" />
+                <ScalarProperty Name="Status_id" ColumnName="Status_id" />
+                <ScalarProperty Name="Data_mer" ColumnName="Data_mer" />
+                <ScalarProperty Name="Vidmer_id" ColumnName="Vidmer_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Obrazovanie">
+            <EntityTypeMapping TypeName="Model.Obrazovanie">
+              <MappingFragment StoreEntitySet="Obrazovanie">
+                <ScalarProperty Name="ID_obr" ColumnName="ID_obr" />
+                <ScalarProperty Name="N_obr" ColumnName="N_obr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pol">
+            <EntityTypeMapping TypeName="Model.Pol">
+              <MappingFragment StoreEntitySet="Pol">
+                <ScalarProperty Name="ID_pol" ColumnName="ID_pol" />
+                <ScalarProperty Name="N_pol" ColumnName="N_pol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roditeli">
+            <EntityTypeMapping TypeName="Model.Roditeli">
+              <MappingFragment StoreEntitySet="Roditeli">
+                <ScalarProperty Name="ID_rod" ColumnName="ID_rod" />
+                <ScalarProperty Name="F_rod" ColumnName="F_rod" />
+                <ScalarProperty Name="I_rod" ColumnName="I_rod" />
+                <ScalarProperty Name="O_rod" ColumnName="O_rod" />
+                <ScalarProperty Name="Phone_rod" ColumnName="Phone_rod" />
+                <ScalarProperty Name="Mestorab_rod" ColumnName="Mestorab_rod" />
+                <ScalarProperty Name="Obr_id" ColumnName="Obr_id" />
+                <ScalarProperty Name="Vidrod_id" ColumnName="Vidrod_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RodUch">
+            <EntityTypeMapping TypeName="Model.RodUch">
+              <MappingFragment StoreEntitySet="RodUch">
+                <ScalarProperty Name="ID_rd" ColumnName="ID_rd" />
+                <ScalarProperty Name="Rod_id" ColumnName="Rod_id" />
+                <ScalarProperty Name="Uch_id" ColumnName="Uch_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatusMer">
+            <EntityTypeMapping TypeName="Model.StatusMer">
+              <MappingFragment StoreEntitySet="StatusMer">
+                <ScalarProperty Name="ID_status" ColumnName="ID_status" />
+                <ScalarProperty Name="N_status" ColumnName="N_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ucheniki">
+            <EntityTypeMapping TypeName="Model.Ucheniki">
+              <MappingFragment StoreEntitySet="Ucheniki">
+                <ScalarProperty Name="ID_uch" ColumnName="ID_uch" />
+                <ScalarProperty Name="F_uch" ColumnName="F_uch" />
+                <ScalarProperty Name="I_uch" ColumnName="I_uch" />
+                <ScalarProperty Name="O_uch" ColumnName="O_uch" />
+                <ScalarProperty Name="Datarozh_uch" ColumnName="Datarozh_uch" />
+                <ScalarProperty Name="Adres_uch" ColumnName="Adres_uch" />
+                <ScalarProperty Name="Phone_uch" ColumnName="Phone_uch" />
+                <ScalarProperty Name="Image_uch" ColumnName="Image_uch" />
+                <ScalarProperty Name="Zach_uch" ColumnName="Zach_uch" />
+                <ScalarProperty Name="Otch_uch" ColumnName="Otch_uch" />
+                <ScalarProperty Name="Nation_uch" ColumnName="Nation_uch" />
+                <ScalarProperty Name="Pol_id" ColumnName="Pol_id" />
+                <ScalarProperty Name="Language_id" ColumnName="Language_id" />
+                <ScalarProperty Name="Klass_id" ColumnName="Klass_id" />
+                <ScalarProperty Name="Dock_id" ColumnName="Dock_id" />
+                <ScalarProperty Name="Fam_id" ColumnName="Fam_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Model.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="ID_user" ColumnName="ID_user" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VidMer">
+            <EntityTypeMapping TypeName="Model.VidMer">
+              <MappingFragment StoreEntitySet="VidMer">
+                <ScalarProperty Name="ID_vidmer" ColumnName="ID_vidmer" />
+                <ScalarProperty Name="N_vidmer" ColumnName="N_vidmer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vidrods">
+            <EntityTypeMapping TypeName="Model.Vidrods">
+              <MappingFragment StoreEntitySet="Vidrods">
+                <ScalarProperty Name="ID_vidrod" ColumnName="ID_vidrod" />
+                <ScalarProperty Name="N_vidrod" ColumnName="N_vidrod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

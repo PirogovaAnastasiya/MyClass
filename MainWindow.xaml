@@ -1,0 +1,32 @@
+﻿<Window x:Class="MyClass.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyClass"
+        mc:Ignorable="d"
+        Title="Авторизация" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight" Width="550" ResizeMode="CanMinimize" Icon="image/avt.png">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="345"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80" />
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0"  Background="#FFDABFFF"/>
+        <Grid Grid.Column="1"  Background="#FFDABFFF"/>
+        <Label Content="Авторизация" Grid.Column="1" Grid.Row="0" FontFamily="Tahoma" FontSize="24" Foreground="DarkBlue" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <Label Content="Логин:" Width="80" Height="28"  VerticalAlignment="Bottom" HorizontalAlignment="Right" FontFamily="Tahoma" Grid.Column="0" Grid.Row="1"/>
+        <Label Content="Пароль:" Width="80" Height="28"  VerticalAlignment="Bottom" HorizontalAlignment="Right" FontFamily="Tahoma" Grid.Column="0" Grid.Row="2"/>
+        <TextBox x:Name="TLogin" Grid.Row="1" Grid.Column="1" Width="160" Height="28" VerticalAlignment="Bottom" HorizontalAlignment="Left" MaxLength="12"/>
+        <TextBox x:Name="TPassword" Grid.Row="2" Grid.Column="1" Width="160" Height="28" VerticalAlignment="Bottom" HorizontalAlignment="Left" MaxLength="12"/>
+            <PasswordBox x:Name="PPassword" Grid.Row="2" Grid.Column="1" Width="160" Height="28" VerticalAlignment="Bottom" HorizontalAlignment="Left" MaxLength="12"/>
+        <CheckBox Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Content="Показать пароль" Click="CheckBox_Click"/>
+            <Button x:Name="BEnter" Content="Войти" Width="130" Height="28" Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left" Click="BEnter_Click" Background="#FFDABFFF"/>
+    </Grid>
+</Window>

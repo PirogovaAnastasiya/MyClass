@@ -1,0 +1,95 @@
+﻿<Page x:Class="MyClass.MerPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MyClass"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MerPage">
+
+    <Grid Background="#FFEEE2FF">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="24"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0"  >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="*"/>
+
+
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0" Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Source="image/search.png"/>
+            <Label Content="Поиск: " Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            <TextBox x:Name="TSearchN" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" Height="23" TextChanged="TSearchN_TextChanged" />
+            <Label Content="Статус: " Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            <ComboBox Name="CSearchStatus" DisplayMemberPath="N_status" Grid.Column="4" Width="120" HorizontalAlignment="Left" Height="23" VerticalAlignment="Center" SelectionChanged="CSearchStatus_SelectionChanged"/>
+            <Label Content="Тип мероприятия: " Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            <ComboBox Name="CSearchVidMer" DisplayMemberPath="N_vidmer" Grid.Column="6" Width="120" HorizontalAlignment="Left" Height="23" VerticalAlignment="Center" SelectionChanged="CSearchVidMer_SelectionChanged" />
+        </Grid>
+        <DataGrid Grid.Row="1" x:Name="MerData" AutoGenerateColumns="False" IsReadOnly="True" Width="auto" SelectionChanged="MerData_SelectionChanged" Background="White">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Дата мероприятия" Binding="{Binding Data_mer, StringFormat=\{0:dd.MM.yyyy\}}"/>
+                <DataGridTextColumn Header="Тип мероприятия" Binding="{Binding VidMer.N_vidmer}"/>
+                    <DataGridTextColumn Header="Название" Binding="{Binding N_mer}" Width="150"/>
+                <DataGridTextColumn Header="Описание" Binding="{Binding Opisanie}" Width="200"/>
+                <DataGridTextColumn Header="Статус" Binding="{Binding StatusMer.N_status}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="BRedMer"  Height="24" Width="40" Click="BRedMer_Click"  Background="#FFDABFFF">
+                                <Image Source="image/redpic.png"/>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Grid.Row="2" HorizontalAlignment="Left" x:Name="LCount"/>
+        <Button x:Name="BAddMer" Grid.Row="3" Content="Добавить" Height="24" Width="120" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="BAddMer_Click" Background="#FFDABFFF"/>
+        <Button x:Name="BDelMer" Grid.Row="3" Content="Удалить" Height="24" Width="120" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="BDelMer_Click" Background="#FFDABFFF"/>
+        <Grid Grid.Row="4">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+               
+            </Grid.RowDefinitions>
+            <Grid  Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="30"/>
+                    
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Вид мероприятия  " Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+                <Label Content="Дата мероприятия  " Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+                <Label Content="Название события  " Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                <Label Content="Описание  " Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                <Label Content="Статус выполнения  " Grid.Row="4" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+                <ComboBox x:Name="CVidMer" DisplayMemberPath="N_vidmer" Grid.Column="1" Grid.Row="0" Width="150" Height="24" HorizontalAlignment="Left" VerticalAlignment="Bottom" IsHitTestVisible="False" />
+                    <DatePicker x:Name="DData_meropr"  Grid.Row="1" Grid.Column="1" Width="120" Height="24" HorizontalAlignment="Left" VerticalAlignment="Bottom"   IsHitTestVisible="False" />
+                <TextBox x:Name="TNazv_meropr"  Grid.Row="2" Grid.Column="1" Width="250" Height="34" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible"  AcceptsReturn="True" HorizontalAlignment="Left" VerticalAlignment="Bottom" IsReadOnly="True"  />
+                <TextBox x:Name="TOpisanie"  Grid.Row="3" Grid.Column="1" Width="300" Height="44" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible"  AcceptsReturn="True" HorizontalAlignment="Left" VerticalAlignment="Bottom"  IsReadOnly="True" />
+                <ComboBox x:Name="CStatus" DisplayMemberPath="N_status" Grid.Row="4" Grid.Column="1" Width="120" Height="24" HorizontalAlignment="Left" VerticalAlignment="Bottom" IsHitTestVisible="False" />
+            </Grid>
+           
+        </Grid>
+        <Grid Grid.Row="5" Background="#FFDABFFF"/>
+    </Grid>
+</Page>
